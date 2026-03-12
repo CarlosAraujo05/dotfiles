@@ -1,0 +1,12 @@
+window-rule {
+    match title="Motor 3D.*"
+    open-floating true
+    // Define uma borda colorida grossa para ver se a regra está a pegar
+    draw-border-with-background true
+}
+window-rule {
+    match title="CG@DI-UM"
+    open-floating true
+    // Define uma borda colorida grossa para ver se a regra está a pegar
+    draw-border-with-background true
+}

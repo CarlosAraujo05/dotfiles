@@ -1,0 +1,63 @@
+# Environment variables
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Credentials & Keys
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.p12
+*.pfx
+*.crt
+*.cer
+credentials.json
+service-account-key.json
+
+# AWS
+.aws/
+credentials
+config
+
+# GitHub
+.git-credentials
+.github_tokens
+
+# Database
+*.sqlite
+*.db
+*.sql
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Build outputs
+debug/
+dist/
+build/
+.repro/
+foo.*
+
+# Test outputs
+.tests/
+doc/tags
+coverage/
+
+# Data
+data/
+*.cache
