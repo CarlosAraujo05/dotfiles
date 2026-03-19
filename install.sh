@@ -32,7 +32,8 @@ install_packages() {
     blueman \
     noctalia-shell \
     yazi \
-    discord
+    discord \
+    zen-browser-bin
   echo "Pacotes instalados!"
 }
 
