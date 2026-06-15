@@ -10,3 +10,9 @@ window-rule {
     // Define uma borda colorida grossa para ver se a regra está a pegar
     draw-border-with-background true
 }
+window-rule {
+    match title="Curves, Cubic Surfaces and VBOs - Fase 3.*"
+    open-floating true
+    // Define uma borda colorida grossa para ver se a regra está a pegar
+    draw-border-with-background true
+}

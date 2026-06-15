@@ -74,7 +74,7 @@ alias gp='git push'
 alias gl='git pull'
 alias v='nvim'
 alias update='sudo pacman -Syu || sudo apt update && sudo apt upgrade'
-alias knime="GDK_BACKEND=x11 /home/carlos/Documentos/ADI/knime_5.9.0/knime"
+alias knime="GDK_BACKEND=x11 /home/carlos/Documents/ADI/knime_5.11.0/knime"
 alias startvm='VBoxManage startvm --type headless'
 alias runningvms='VBoxManage list runningvms'
 
@@ -98,3 +98,19 @@ export VISUAL=nvim
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/home/carlos/.local/bin:$PATH"
 export PATH="/home/carlos/.local/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/carlos/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/carlos/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/carlos/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/carlos/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

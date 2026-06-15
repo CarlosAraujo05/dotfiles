@@ -1,0 +1,95 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "languages": {
+    "Rust": {
+      "show_edit_predictions": false
+    }
+  },
+  "show_edit_predictions": false,
+  "ssh_connections": [
+    {
+      "host": "tso",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/tso/Documents/TSO-2526/./"
+          ]
+        }
+      ]
+    }
+  ],
+  "outline_panel": {
+    "dock": "left"
+  },
+  "search": {
+    "button": false
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode-go/kimi-k2.6"
+      },
+      "favorite_config_option_values": {
+        "model": [
+          "opencode-go/kimi-k2.6"
+        ],
+        "mode": [
+          "plan"
+        ]
+      },
+      "type": "registry"
+    }
+  },
+  "terminal": {
+    "dock": "bottom",
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "font_size": 15.0
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "default_model": {
+      "provider": "opencode",
+      "model": "go/kimi-k2.6",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "language_models": {
+    "opencode": {
+      "show_zen_models": false
+    }
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": false,
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+  },
+}
