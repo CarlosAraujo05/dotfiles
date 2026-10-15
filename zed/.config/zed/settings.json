@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
   "autosave": {
     "after_delay": {
       "milliseconds": 1000
@@ -29,6 +30,29 @@
           ]
         }
       ]
+    },
+    {
+      "host": "192.168.58.101",
+      "username": "vagrant",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/vagrant"
+          ]
+        },
+        {
+          "paths": [
+            "/home/vagrant/todo-list-app/./"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "192.168.58.101",
+      "username": "vagrant",
+      "args": [],
+      "projects": []
     }
   ],
   "outline_panel": {
