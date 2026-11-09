@@ -4,28 +4,27 @@
 
 study() {
     local course="${1:u}"
-    local base="$HOME/Universidade/2026-2027/semestre-1"
+    local base="$HOME/Documents/MEI/SEM1-2627"
     local dir="$base/$course"
 
     if [[ -z "$course" ]]; then
         echo "Usage: study <course>"
-        echo "Courses: MFES SSC ESR ASCN RAS ABD"
+        echo "Courses: ASCN DBA ESR MFES RAS SSC"
         return 1
     fi
 
     if [[ ! -d "$dir" ]]; then
-        echo "Directory not found: $dir"
+        echo "Course not found: $course"
         return 1
     fi
 
     zed "$dir" || return 1
 
-    echo "Starting 25-minute study session: $course"
-
+    echo "Studying $course for 25 minutes..."
     sleep 1500
 
     printf '\a'
-    echo "Study session complete!"
+    echo "Study session completed!"
 }
 
 # Create and enter a directory

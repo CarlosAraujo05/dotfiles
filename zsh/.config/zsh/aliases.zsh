@@ -35,4 +35,8 @@ alias c="clear"
 alias reload="source ~/.zshrc"
 
 # University
-alias uni="cd ~/Universidade"
+# University
+alias mei='cd ~/Documents/MEI'
+alias sem='cd ~/Documents/MEI/SEM1-2627'
+alias notes='cd ~/Documents/MEI/Knowledge'
+alias scripts='cd ~/Documents/MEI/Scripts'
