@@ -33,8 +33,10 @@ alias n="ninja"
 # Utilities
 alias c="clear"
 alias reload="source ~/.zshrc"
+alias ls='eza --icons --group-directories-first'
+alias la='eza -la --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first'
 
-# University
 # University
 alias mei='cd ~/Documents/MEI'
 alias sem='cd ~/Documents/MEI/SEM1-2627'

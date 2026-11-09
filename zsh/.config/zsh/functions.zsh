@@ -3,28 +3,49 @@
 # ==================================================
 
 study() {
-    local course="${1:u}"
-    local base="$HOME/Documents/MEI/SEM1-2627"
-    local dir="$base/$course"
+  local course="${1:u}"
+  local minutes="${2:-25}"
+  local root="$HOME/Documents/MEI"
+  local course_dir="$root/SEM1-2627/$course"
+  local notes_dir="$root/Knowledge/01-Cadeiras/$course"
 
-    if [[ -z "$course" ]]; then
-        echo "Usage: study <course>"
-        echo "Courses: ASCN DBA ESR MFES RAS SSC"
-        return 1
-    fi
+  case "$course" in
+    ASCN|DBA|ESR|MFES|RAS|SSC) ;;
+    *)
+      echo "Uso: study <ascn|dba|esr|mfes|ras|ssc> [minutos]"
+      return 1
+      ;;
+  esac
 
-    if [[ ! -d "$dir" ]]; then
-        echo "Course not found: $course"
-        return 1
-    fi
+  if [[ ! -d "$course_dir" || ! -d "$notes_dir" ]]; then
+    echo "Erro: diretório da cadeira não encontrado."
+    return 1
+  fi
 
-    zed "$dir" || return 1
+  if [[ ! "$minutes" =~ ^[0-9]+$ ]] || (( minutes < 1 )); then
+    echo "Erro: duração inválida."
+    return 1
+  fi
 
-    echo "Studying $course for 25 minutes..."
-    sleep 1500
+  echo "📚 $course — $minutes minutos"
 
-    printf '\a'
-    echo "Study session completed!"
+  if command -v zeditor >/dev/null 2>&1; then
+    zeditor "$course_dir" >/dev/null 2>&1 &!
+  else
+    echo "Aviso: zeditor não encontrado."
+  fi
+
+  local uri="obsidian://open?vault=Knowledge&file=01-Cadeiras%2F${course}"
+
+  if command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$uri" >/dev/null 2>&1 &!
+  fi
+
+  echo "⏳ Sessão iniciada. Ctrl+C para cancelar."
+  sleep "$((minutes * 60))" || return 130
+
+  printf '\a'
+  echo "✅ Sessão de $course concluída!"
 }
 
 # Create and enter a directory

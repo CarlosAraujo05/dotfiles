@@ -1,6 +1,6 @@
 # Default editor
-export EDITOR="zed --wait"
-export VISUAL="zed --wait"
+export EDITOR="zeditor --wait"
+export VISUAL="zeditor --wait"
 
 # Terminal
 export TERMINAL="kitty"
