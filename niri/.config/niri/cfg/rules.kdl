@@ -20,3 +20,19 @@
         match namespace="^noctalia-wallpaper*"
         place-within-backdrop true
     }
+    
+    // Regra para o Zen Browser
+    window-rule {
+        match app-id="zen"
+        
+        // Faz a coluna ocupar 100% da largura do monitor
+        open-maximized true
+    }
+    
+    // Regra para o Zed
+    window-rule {
+        match app-id="dev.zed.Zed"
+        
+        // Faz a coluna ocupar 100% da largura do monitor
+        open-maximized true
+    }

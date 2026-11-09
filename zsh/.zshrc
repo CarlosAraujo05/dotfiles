@@ -1,116 +1,76 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# ==================================================
+# ZSH CONFIGURATION
+# CachyOS + Niri + Kitty
+# ==================================================
+
+# Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ===============================
-# OH MY ZSH BASE
-# ===============================
+# --------------------------------------------------
+# History
+# --------------------------------------------------
 
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  z
-  fzf
-  sudo
-  colored-man-pages
-  history-substring-search
-)
-
-source $ZSH/oh-my-zsh.sh
-
-
-# ===============================
-# HISTORY CONFIG
-# ===============================
-
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zsh_history
 
-setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
-setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
 
+# --------------------------------------------------
+# Completion
+# --------------------------------------------------
 
-# ===============================
-# BETTER COMPLETION
-# ===============================
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
 
-autoload -Uz compinit
-compinit
+# --------------------------------------------------
+# Environment
+# --------------------------------------------------
 
+[[ -f ~/.config/zsh/exports.zsh ]] &&
+    source ~/.config/zsh/exports.zsh
 
-# ===============================
-# ZOXIDE (better cd)
-# ===============================
+# --------------------------------------------------
+# Aliases
+# --------------------------------------------------
 
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
+[[ -f ~/.config/zsh/aliases.zsh ]] &&
+    source ~/.config/zsh/aliases.zsh
+
+# --------------------------------------------------
+# Functions
+# --------------------------------------------------
+
+[[ -f ~/.config/zsh/functions.zsh ]] &&
+    source ~/.config/zsh/functions.zsh
+    
+# --------------------------------------------------
+# Powerlevel10k
+# --------------------------------------------------
+
+if [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# ===============================
-# ALIASES
-# ===============================
-alias cd='z'
-alias ls='eza --icons'
-alias ll='eza -lah --icons --group-directories-first'
-alias la='eza -a --icons'
-alias l='eza --icons --group-directories-first'
-alias tree='eza --icons --tree'
-alias lg='eza -lah --icons --git'
-alias gs='git status'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git pull'
-alias v='nvim'
-alias update='sudo pacman -Syu || sudo apt update && sudo apt upgrade'
-alias knime="GDK_BACKEND=x11 /home/carlos/Documents/ADI/knime_5.11.0/knime"
-alias startvm='VBoxManage startvm --type headless'
-alias runningvms='VBoxManage list runningvms'
+# --------------------------------------------------
+# Autosuggestions / Syntax highlighting
+# --------------------------------------------------
 
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-stopvm() {
-  VBoxManage controlvm "$1" poweroff
-}
-# ===============================
-# EDITOR DEFAULT
-# ===============================
+[[ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]] &&
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-export EDITOR=nvim
-export VISUAL=nvim
-
-
-# ===============================
-# POWERLEVEL10K INSTANT PROMPT
-# (keep at bottom)
-# ===============================
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="/home/carlos/.local/bin:$PATH"
-export PATH="/home/carlos/.local/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/carlos/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/carlos/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/carlos/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/carlos/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# Syntax highlighting should load last
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
